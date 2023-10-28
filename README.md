@@ -1,3 +1,3 @@
 ## Тестовое задание на позицию frontent-разработчик
 
-Проект можно посмотреть по сслыке: [https://travis-ci.org/joemccann/dillinger](https://travis-ci.org/joemccann/dillinger)
+Проект можно посмотреть по сслыке: [https://test-webhelper-frontend.vercel.app](https://test-webhelper-frontend.vercel.app)
