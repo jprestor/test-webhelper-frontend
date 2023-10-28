@@ -10,15 +10,14 @@ export async function fetchApi(
 
   try {
     if (typeof window === 'undefined') {
-      authToken = clientCookies.get('authToken');
-    } else {
-      const { cookies: serverCookies } = await import('next/headers');
+      const { cookies: serverCookies } = require('next/headers');
       authToken = serverCookies().get('authToken')?.value;
+    } else {
+      authToken = clientCookies.get('authToken');
     }
 
     // Merge default and user options
     const mergedOptions: RequestInit = {
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
         ...(authToken && { Authorization: `Bearer ${authToken}` }),
@@ -28,7 +27,7 @@ export async function fetchApi(
 
     // Build request URL
     const queryString = qs.stringify(queryParamsObject);
-    const requestUrl = `${process.env.API_URL}${path}${
+    const requestUrl = `${process.env.NEXT_PUBLIC_API_URL}${path}${
       queryString ? `?${queryString}` : ''
     }`;
 

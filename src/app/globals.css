@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply text-ContentBlack bg-[#F6F7F8];
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  a[href] {
+    @apply transition;
+
+    &:hover {
+      @apply text-InfoBlue;
+    }
+  }
+
+  .link-underline {
+    position: relative;
+    width: fit-content;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 25%;
+      height: 2px;
+      background: theme('colors.MainYellow');
+      transition: 0.2s;
+      opacity: 0;
+    }
+
+    &:hover {
+      color: theme('colors.ContentBlack') !important;
+      &::before {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
 }
