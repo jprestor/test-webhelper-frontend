@@ -76,7 +76,7 @@ export function Catalog({
           <p className="text-ErrorRed">По данному запросу ничего не найдено</p>
         )}
         {isNoInput && (
-          <p className="italic">
+          <p className="text-Grey italic">
             ...Введите название или артикул в поле поиска
           </p>
         )}
