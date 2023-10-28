@@ -130,7 +130,6 @@ export function Catalog({
             </table>
           </div>
         )}
-
         <div className="flex gap-5">
           {pagination.map((num) => (
             <button
